@@ -3,13 +3,14 @@ import ProjectCard from "./ProjectCard";
 import draftImage from '../assets/draft.png';
 import orchardImage from '../assets/orchard.png';
 import arrhythmiaImage from '../assets/arrhythmia.png';
+import wpwImage from '../assets/wpw.png';
 import useScrollAnimation from '../hooks/useScrollAnimation';
 
 const projects = [
   {
     title: "NBA Draft Decoded",
     image: draftImage,
-    description: "this is a description this is a description this is a description this is a description."
+    description: "Used bayesian analysis and linear regression to determine if NBA draft order determines career success."
   },
   {
     title: "Orchard Odyssey",
@@ -23,7 +24,7 @@ const projects = [
   },
   {
     title: "Localizing Accessory Pathway in WPW Patients",
-    image: "path/to/image4.jpg",
+    image: wpwImage,
     description: "this is a description this is a description this is a description this is a description."
   },
   {

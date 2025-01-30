@@ -8,7 +8,7 @@ const experiences = [
     location: "Boulder, CO",
     date: "September 2025",
     description: "Description",
-    skills: ["Skill 1", "Skill 2", "Skill 3"]
+    skills: ["Django", "React", "PostgreSQL"]
   },
   {
     title: "Software Engineer Intern",
@@ -16,7 +16,7 @@ const experiences = [
     location: "Boulder, CO",
     date: "May 2024 - August 2024",
     description: "Description ",
-    skills: ["Skill 1", "Skill 2", "Skill 3"]
+    skills: ["Django", "React", "PostgreSQL"]
   },
   {
     title: "Software Engineer Intern",
@@ -24,7 +24,7 @@ const experiences = [
     location: "Remote",
     date: "June 2023 - August 2023",
     description: "Description ",
-    skills: ["Skill 1", "Skill 2", "Skill 3"]
+    skills: ["Python", "NumPy", "Matplotlib"]
   },
   {
     title: "Data Science Intern",
@@ -32,13 +32,13 @@ const experiences = [
     location: "Palo Alto, CA",
     date: "May 2022 - August 2022",
     description: "Description ",
-    skills: ["Skill 1", "Skill 2", "Skill 3"]
+    skills: ["TensorFlow", "Scikit-learn", "Matplotlib"]
   },
 ];
 
 function Experience() {
-  const titleRef = useScrollAnimation();
-  const experienceRef = useScrollAnimation();
+  const titleRef = useScrollAnimation(); // animation for the title
+  const experienceRef = useScrollAnimation(); // animation for the experience
 
   return (
     <div className="flex items-center justify-left py-12">

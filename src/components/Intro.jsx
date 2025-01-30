@@ -6,9 +6,9 @@ const emojis = ["👋", "😎", "🚀", "💻", "🌟", "🎨", "🤖", "👾", 
 
 function Intro() { 
   const [isModalOpen, setIsModalOpen] = useState(false); // modal for photo gallery
-  const [currentEmoji, setCurrentEmoji] = useState("👋"); // current emoji for randomizing the intro
+  const [currentEmoji, setCurrentEmoji] = useState(emojis[0]); // current emoji for randomizing the intro
 
-  // function to change the current emoji
+  // function to change the current emoji to a random emoji
   const changeEmoji = () => {
     const filteredEmojis = emojis.filter(emoji => emoji !== currentEmoji); // ensure random emoji is not the same as the current one
     const randEmoji = filteredEmojis[Math.floor(Math.random() * filteredEmojis.length)];
@@ -17,7 +17,7 @@ function Intro() {
 
   // photos for photo gallery
   const photos = [
-    { src: headshot, alt: "Professional Headshot" },
+    { src: headshot, alt: "My Headshot" },
     // { src: photo2, alt: "Description 2" },
     // { src: photo3, alt: "Description 3" },
   ];
@@ -77,7 +77,7 @@ function Intro() {
             onClick={e => e.stopPropagation()}
           >
             <div className="flex justify-between items-center mb-4">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Photo Gallery</h2>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Gallery</h2>
               <button 
                 onClick={closeModal}
                 className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 text-3xl font-light w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"
