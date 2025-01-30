@@ -4,9 +4,30 @@ export default {
   darkMode: 'class',
   theme: {
     extend: {
-      fontFamily: { 
-        inter: ['inter', 'serif'],
-      }
+      fontFamily: {
+        sans: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'],
+        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'],
+      },
+      animation: {
+        'fadeIn': 'fadeIn 0.8s ease-out forwards',
+        'slideIn': 'slideIn 1s ease-in',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { 
+            opacity: '0',
+            transform: 'translateY(20px)'
+          },
+          '100%': { 
+            opacity: '1',
+            transform: 'translateY(0)'
+          }
+        },
+        slideIn: {
+          '0%': { transform: 'translateY(100px)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+      },
     },
   },
   plugins: [],
