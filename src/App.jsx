@@ -25,7 +25,7 @@ function App() {
   const toggleDark = () => setIsDark(!isDark); // toggle for dark mode
 
   return (
-    <div className="App min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 font-sans p-4 transition-colors duration-200">
+    <div className="App min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 font-sans p-2 sm:p-4 transition-colors duration-200">
       <div className="max-w-7xl mx-auto min-h-screen bg-white/80 dark:bg-gray-800/80 backdrop-blur-md shadow-2xl rounded-2xl transition-colors duration-200">
         <Navbar isDark={isDark} toggleDark={toggleDark} />
         <div className="space-y-24">

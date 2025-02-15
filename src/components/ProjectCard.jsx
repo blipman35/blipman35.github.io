@@ -30,7 +30,7 @@ function ProjectCard({ title, image, description }) {
       onClick={closeModal}
     >
       <div 
-        className="bg-white dark:bg-gray-800 rounded-2xl w-full max-w-4xl max-h-[90vh] shadow-[0_8px_32px_rgba(0,0,0,0.1)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.3)] border border-gray-200 dark:border-gray-700"
+        className="bg-white dark:bg-gray-800 rounded-2xl w-full max-w-[95vw] sm:max-w-4xl max-h-[90vh] overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.1)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.3)]"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex flex-col h-full">
