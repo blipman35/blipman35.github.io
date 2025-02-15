@@ -62,13 +62,14 @@ function Navbar({ isDark, toggleDark }) {
 
       {/* Mobile menu dropdown */}
       {isMenuOpen && (
-        <div className="absolute top-full left-0 right-0 mt-2 p-2 bg-white/90 dark:bg-gray-800/90 backdrop-blur-md rounded-2xl shadow-lg lg:hidden">
+        <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 p-2 bg-white/90 dark:bg-gray-800/90 backdrop-blur-md rounded-2xl shadow-lg lg:hidden w-[calc(100vw-2rem)] max-w-[320px]">
           <Link
             to="home"
             smooth={true}
             duration={500}
             offset={-50}
             className="block px-4 py-2 rounded-full text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 font-semibold text-lg"
+            onClick={() => setIsMenuOpen(false)}
           >
             Home
           </Link>
@@ -78,6 +79,7 @@ function Navbar({ isDark, toggleDark }) {
             duration={500}
             offset={-50}
             className="block px-4 py-2 rounded-full text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 font-semibold text-lg"
+            onClick={() => setIsMenuOpen(false)}
           >
             Experience
           </Link>
@@ -87,6 +89,7 @@ function Navbar({ isDark, toggleDark }) {
             duration={500}
             offset={-50}
             className="block px-4 py-2 rounded-full text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 font-semibold text-lg"
+            onClick={() => setIsMenuOpen(false)}
           >
             Projects
           </Link>
@@ -96,10 +99,11 @@ function Navbar({ isDark, toggleDark }) {
             duration={500}
             offset={-50}
             className="block px-4 py-2 rounded-full text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 font-semibold text-lg"
+            onClick={() => setIsMenuOpen(false)}
           >
             Contact
           </Link>
-          <div className="mt-2">
+          <div className="mt-2 px-4">
             <DarkModeToggle isDark={isDark} toggleDark={toggleDark} />
           </div>
         </div>
