@@ -9,6 +9,7 @@ function Navbar({ isDark, toggleDark }) {
           to="home"
           smooth={true}
           duration={500}
+          offset={-50}
           className="cursor-pointer px-4 py-2 rounded-full text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 font-semibold text-lg"
         >
           Home
@@ -17,6 +18,7 @@ function Navbar({ isDark, toggleDark }) {
           to="experience"
           smooth={true}
           duration={500}
+          offset={-50}
           className="cursor-pointer px-4 py-2 rounded-full text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 font-semibold text-lg"
         >
           Experience
@@ -25,6 +27,7 @@ function Navbar({ isDark, toggleDark }) {
           to="projects"
           smooth={true}
           duration={500}
+          offset={-50}
           className="cursor-pointer px-4 py-2 rounded-full text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 font-semibold text-lg"
         >
           Projects
@@ -33,6 +36,7 @@ function Navbar({ isDark, toggleDark }) {
           to="contact"
           smooth={true}
           duration={500}
+          offset={-50}
           className="cursor-pointer px-4 py-2 rounded-full text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 font-semibold text-lg"
         >
           Contact

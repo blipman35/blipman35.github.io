@@ -30,6 +30,11 @@ export default {
       },
     },
   },
+  variants: {
+    extend: {
+      scrollbar: ['rounded']
+    }
+  },
   plugins: [],
 }
 

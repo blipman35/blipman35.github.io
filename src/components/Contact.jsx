@@ -24,7 +24,7 @@ function Contact() {
       value: "blipman35",
       icon: "💻",
       href: "https://github.com/blipman35"
-    }
+    },
   ];
 
   return (
@@ -50,10 +50,10 @@ function Contact() {
               href={method.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 group"
+              className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:scale-105 hover:shadow-xl transition-all duration-300 group"
             >
               <div className="flex items-center gap-4">
-                <span className="text-3xl group-hover:scale-110 transition-transform duration-200">
+                <span className="text-3xl group-hover:scale-110 transition-transform duration-300">
                   {method.icon}
                 </span>
                 <div>

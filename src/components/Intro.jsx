@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import headshot from '../assets/lipman_headshot.png';
 import Typewriter from "./Typewriter";
 
-const emojis = ["👋", "😎", "🚀", "💻", "🌟", "🎨", "🤖", "👾", "🌍"] // emojis for randomizing the intro
+const emojis = ["👾", "👋", "😎", "🚀", "🌟", "🎨", "🤖", "🌍", "👨‍💻", "🕴️"] // emojis for randomizing the intro
 
 function Intro() { 
   const [isModalOpen, setIsModalOpen] = useState(false); // modal for photo gallery
@@ -35,7 +35,7 @@ function Intro() {
             <h1 className="font-mono text-4xl lg:text-6xl mb-1 md:mb-3 font-bold dark:text-white"> {/* title for the intro */}
               <span 
                 onClick={changeEmoji} // change the current emoji on click
-                className="cursor-pointer hover:scale-110 inline-block transition-transform duration-200" // hover effect for the emoji
+                className="cursor-pointer hover:scale-125 inline-block transition-transform duration-200" // hover effect for the emoji
               >
                 {currentEmoji}
               </span>
@@ -43,7 +43,7 @@ function Intro() {
             </h1>
             <div className="font-mono text-sm sm:text-base lg:text-lg mb-3 md:mb-5 text-gray-700 dark:text-gray-300">
               <p className="mb-2">
-                <Typewriter text="Software Engineer @ Workday (Incoming)" delay={100} />
+                <Typewriter text="(Incoming) Software Engineer @ Workday" delay={100} />
               </p>
               <p>
                 <Typewriter text="B.A. in Computer Science from The University of Colorado Boulder" delay={80} />
@@ -56,11 +56,12 @@ function Intro() {
               className="relative group cursor-pointer"
               onClick={() => setIsModalOpen(true)}
             >
-              <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-3xl blur-md opacity-40 group-hover:opacity-75 transition duration-300"></div>
+              <div className="absolute -inset-2 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full blur-md opacity-50 group-hover:opacity-80 transition duration-300"></div>
               <img 
                 src={headshot}
                 alt="Benjamin Lipman"
-                className="relative h-48 w-48 md:h-56 md:w-56 rounded-2xl object-cover shadow-xl hover:shadow-2xl transition-all duration-300"
+                className="relative h-48 w-48 md:h-56 md:w-56 rounded-full object-cover border-4 border-white dark:border-gray-800 shadow-2xl transition-transform transform group-hover:scale-105 duration-300"
+                style={{ objectPosition: '50% 35%' }}
               />
             </div>
           </div>

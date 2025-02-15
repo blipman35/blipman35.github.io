@@ -2,20 +2,22 @@ import React from "react";
 import useScrollAnimation from '../hooks/useScrollAnimation';
 
 const experiences = [
-  {
-    title: "Software Engineer",
-    company: "Workday",
-    location: "Boulder, CO",
-    date: "September 2025",
-    description: "Description",
-    skills: ["Django", "React", "PostgreSQL"]
-  },
+  // {
+  //   title: "Software Engineer",
+  //   company: "Workday",
+  //   location: "Boulder, CO",
+  //   date: "September 2025 - ",
+  //   description: ["Following my graduation this spring, I'll be returning to Workday full-time as a Software Engineer!"],
+  //   skills: ["Django", "React", "PostgreSQL"]
+  // },
   {
     title: "Software Engineer Intern",
     company: "Workday",
     location: "Boulder, CO",
     date: "May 2024 - August 2024",
-    description: "Description ",
+    description: ["Developed new RESTful API using Django, enabling vendors to apply candidates to jobs \
+                  and track existing applications, reducing latency by >50% over legacy API version.", 
+                  ""],
     skills: ["Django", "React", "PostgreSQL"]
   },
   {
@@ -23,7 +25,8 @@ const experiences = [
     company: "Infleqtion",
     location: "Remote",
     date: "June 2023 - August 2023",
-    description: "Description ",
+    description: ["Description ", 
+                  "Description line 2"],
     skills: ["Python", "NumPy", "Matplotlib"]
   },
   {
@@ -31,7 +34,7 @@ const experiences = [
     company: "Stanford Children's Health",
     location: "Palo Alto, CA",
     date: "May 2022 - August 2022",
-    description: "Description ",
+    description: ["Description"],
     skills: ["TensorFlow", "Scikit-learn", "Matplotlib"]
   },
 ];
@@ -52,7 +55,7 @@ function Experience() {
         
         <div 
           ref={experienceRef}
-          className="space-y-6 opacity-0"
+          className="space-y-6 opacity-0 overflow-y-auto h-[600px] scroll-smooth pr-4"
         >
           {experiences.map((exp, index) => (
             <div 
@@ -71,7 +74,17 @@ function Experience() {
                 </div>
               </div>
               
-              <p className="text-gray-700 dark:text-gray-300 mb-4">{exp.description}</p>
+              <p className="text-gray-700 dark:text-gray-300 mb-4">
+                {Array.isArray(exp.description) ? (
+                  exp.description.map((line, index) => (
+                    <span key={index} className="block mb-2">
+                      {line}
+                    </span>
+                  ))
+                ) : (
+                  exp.description
+                )}
+              </p>
               
               <div className="flex flex-wrap gap-2">
                 {exp.skills.map((skill, skillIndex) => (
