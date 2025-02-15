@@ -11,6 +11,7 @@ export default {
       animation: {
         'fadeIn': 'fadeIn 0.8s ease-out forwards',
         'slideIn': 'slideIn 1s ease-in',
+        'modalIn': 'modalIn 0.3s ease-out forwards',
       },
       keyframes: {
         fadeIn: {
@@ -26,6 +27,16 @@ export default {
         slideIn: {
           '0%': { transform: 'translateY(100px)', opacity: '0' },
           '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+        modalIn: {
+          '0%': { 
+            opacity: '0',
+            transform: 'scale(0.95)'
+          },
+          '100%': { 
+            opacity: '1',
+            transform: 'scale(1)'
+          }
         },
       },
     },

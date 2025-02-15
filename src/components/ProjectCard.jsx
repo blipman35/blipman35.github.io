@@ -26,11 +26,11 @@ function ProjectCard({ title, image, description }) {
 
   const modalContent = (
     <div 
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-sm bg-black/20"
       onClick={closeModal}
     >
       <div 
-        className="bg-white dark:bg-gray-800 rounded-2xl w-full max-w-[95vw] sm:max-w-4xl max-h-[90vh] overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.1)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.3)]"
+        className="bg-white dark:bg-gray-800 rounded-2xl w-full max-w-4xl p-6 shadow-[0_8px_32px_rgba(0,0,0,0.1)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.3)] animate-modalIn"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex flex-col h-full">
