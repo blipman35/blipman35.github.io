@@ -62,16 +62,16 @@ function ProjectCard({ title, image, description }) {
     <>
       <div 
         onClick={() => setIsModalOpen(true)}
-        className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl shadow-lg hover:scale-105 hover:shadow-[0_20px_50px_rgba(0,0,0,0.15)] dark:hover:shadow-[0_20px_50px_rgba(0,0,0,0.3)] transition-all duration-300 cursor-pointer group"
+        className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl shadow-lg hover:scale-105 hover:shadow-[0_20px_50px_rgba(0,0,0,0.15)] dark:hover:shadow-[0_20px_50px_rgba(0,0,0,0.3)] transition-all duration-300 cursor-pointer group h-full flex flex-col"
       >
-        <div className="relative h-48">
+        <div className="relative h-48 flex-shrink-0">
           <img 
             src={image} 
             alt={title} 
             className="w-full h-full object-cover rounded-t-2xl"
           />
         </div>
-        <div className="p-6">
+        <div className="p-6 flex-grow">
           <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">{title}</h3>
           <p className="text-gray-600 dark:text-gray-300 line-clamp-2">{description}</p>
         </div>

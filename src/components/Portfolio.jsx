@@ -98,7 +98,10 @@ function Portfolio() {
             className="grid grid-cols-3 gap-8 p-8 opacity-0"
           >
             {getCurrentPageProjects().map((project, index) => (
-              <div key={index} className="transform transition-all duration-300">
+              <div 
+                key={index} 
+                className="transform transition-all duration-300 h-full"
+              >
                 <ProjectCard 
                   title={project.title}
                   image={project.image}
