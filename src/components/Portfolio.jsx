@@ -12,12 +12,17 @@ const projects = [
   {
     title: "Orchard Odyssey",
     image: orchardImage,
-    description: "A 2D side scrolling game built in Java."
+    description: "A 2D side scrolling game built in Java.",
+    skills: ["Java", "OOP", "Design"],
+    date: "April 2024"
   },
   {
     title: "BuffHeard",
     image: buffImage,
-    description: "this is a description this is a description this is a description this is a description."
+    description: "An accessible web platform for CU students to socialize, find events, \
+                  and connect with each other.",
+    skills: ["JavaScript", "Node", "PostgreSQL", "Mapbox", "Azure", "Docker"],
+    date: "May 2023"
   },
   {
     title: "Arrhythmia Detection",
@@ -106,6 +111,8 @@ function Portfolio() {
                   title={project.title}
                   image={project.image}
                   description={project.description}
+                  skills={project.skills}
+                  date={project.date}
                 />
               </div>
             ))}
