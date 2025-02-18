@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://blipman35.github.io",
+  "homepage": "https://benlipman.com",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
