@@ -30,7 +30,7 @@ const projects = [
     description: "this is a description this is a description this is a description this is a description."
   },
   {
-    title: "Localizing Accessory Pathway in WPW Patients",
+    title: "ML for WPW Detection",
     image: wpwImage,
     description: "this is a description this is a description this is a description this is a description."
   },

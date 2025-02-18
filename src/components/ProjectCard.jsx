@@ -30,15 +30,15 @@ function ProjectCard({ title, image, description, skills = [], date }) {
       onClick={closeModal}
     >
       <div 
-        className="bg-white dark:bg-gray-800 rounded-2xl w-full max-w-6xl h-[90vh] shadow-[0_8px_32px_rgba(0,0,0,0.1)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.3)] animate-modalIn overflow-hidden"
+        className="bg-white dark:bg-gray-800 rounded-2xl w-full max-w-3xl shadow-[0_8px_32px_rgba(0,0,0,0.1)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.3)] animate-modalIn"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex flex-col h-full">
+        <div className="flex flex-col">
           <div className="flex justify-between items-start p-6 border-b border-gray-200 dark:border-gray-700">
-            <div>
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white">{title}</h2>
+            <div className="space-y-1">
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">{title}</h2>
               {date && (
-                <p className="text-gray-500 dark:text-gray-400 mt-1">{date}</p>
+                <p className="text-gray-500 dark:text-gray-400">{date}</p>
               )}
             </div>
             <button 
@@ -48,33 +48,29 @@ function ProjectCard({ title, image, description, skills = [], date }) {
               ×
             </button>
           </div>
-          <div className="flex-1 overflow-y-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 p-6">
-              <div className="relative">
-                <img 
-                  src={image} 
-                  alt={title} 
-                  className="w-full h-auto rounded-xl shadow-lg"
-                />
-              </div>
-              <div className="space-y-6">
-                {skills && skills.length > 0 && (
-                  <div className="flex flex-wrap gap-2">
-                    {skills.map((skill, index) => (
-                      <span 
-                        key={index}
-                        className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-100 rounded-full text-sm font-medium"
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                )}
-                <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
-                  {description}
-                </p>
-              </div>
+          <div className="p-6 space-y-6">
+            <div className="relative w-full aspect-video bg-gray-100 dark:bg-gray-700 rounded-xl overflow-hidden">
+              <img 
+                src={image} 
+                alt={title} 
+                className="w-full h-full object-contain"
+              />
             </div>
+            {skills && skills.length > 0 && (
+              <div className="flex flex-wrap gap-2">
+                {skills.map((skill, index) => (
+                  <span 
+                    key={index}
+                    className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-100 rounded-full text-sm font-medium"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            )}
+            <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+              {description}
+            </p>
           </div>
         </div>
       </div>

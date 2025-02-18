@@ -7,9 +7,9 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
 function App() {
-  const [isDark, setIsDark] = useState(() => { // State for dark mode
+  const [isDark, setIsDark] = useState(() => {
     const savedTheme = localStorage.getItem('theme');
-    return savedTheme === 'dark';
+    return savedTheme ? savedTheme === 'dark' : true; // Default to true if no theme is saved
   });
 
   useEffect(() => {
