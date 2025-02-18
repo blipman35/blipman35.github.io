@@ -14,6 +14,7 @@ export default {
         'modalIn': 'modalIn 0.3s ease-out forwards',
         'spin-slow': 'spin 3s linear infinite',
         'spin-slower': 'spin 6s linear infinite',
+        'cursor': 'cursor 1s infinite',
       },
       keyframes: {
         fadeIn: {
@@ -39,6 +40,10 @@ export default {
             opacity: '1',
             transform: 'scale(1)'
           }
+        },
+        cursor: {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0' },
         },
       },
     },
