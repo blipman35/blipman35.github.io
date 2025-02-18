@@ -12,6 +12,8 @@ export default {
         'fadeIn': 'fadeIn 0.8s ease-out forwards',
         'slideIn': 'slideIn 1s ease-in',
         'modalIn': 'modalIn 0.3s ease-out forwards',
+        'spin-slow': 'spin 3s linear infinite',
+        'spin-slower': 'spin 6s linear infinite',
       },
       keyframes: {
         fadeIn: {
