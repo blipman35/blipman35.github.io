@@ -25,7 +25,7 @@ function App() {
 
   const toggleDark = () => setIsDark(!isDark); // toggle for dark mode
 
-  const isUnderConstruction = true; // Toggle this when ready to launch
+  const isUnderConstruction = false; // Toggle this when ready to launch
 
   if (isUnderConstruction) {
     return <UnderConstruction />;

@@ -62,9 +62,9 @@ function Intro() {
   );
 
   return ( 
-    <div id="home" className="flex items-center justify-center min-h-screen px-4 animate-fadeIn">  {/*home section */}
-      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-16"> {/* container for the intro */}
-        <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-6 md:gap-12 py-8 md:py-0"> {/* flex container for the intro */}
+    <div id="home" className="h-screen flex items-center justify-center px-4">  {/* Changed min-h-screen to h-screen */}
+      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-16"> 
+        <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-6 md:gap-12"> {/* Removed py-8 md:py-0 */}
           <div className="flex-1 space-y-6 text-center md:text-left"> {/* text container for the intro */}
             <h1 className="font-mono text-4xl lg:text-6xl mb-1 md:mb-3 font-bold dark:text-white"> {/* title for the intro */}
               <span 
