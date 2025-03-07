@@ -15,8 +15,9 @@ const experiences = [
     company: "Workday",
     location: "Boulder, CO",
     date: "May 2024 - August 2024",
-    description: ["Developed new RESTful API using Django, enabling vendors to apply candidates to jobs \
-                  and track existing applications, reducing latency by >50% over legacy API version.", 
+    description: ["Worked on VNDLY, Workday's vendor management system.",
+                  "Developed new RESTful API using Django, enabling vendors to apply candidates to jobs \
+                  and track existing applications, reducing latency by >50% over legacy API version", 
                   ""],
     skills: ["Django", "React", "PostgreSQL"]
   },
@@ -25,8 +26,9 @@ const experiences = [
     company: "Infleqtion",
     location: "Remote",
     date: "June 2023 - August 2023",
-    description: ["Description ", 
-                  "Description line 2"],
+    description: ["Developed a python module for real-time simulation of Oqtant, the world's first cloud-based quantum \
+                   matter service", 
+                  "Simulator is publicly available and being used by educators, researchers and developers around the world"],
     skills: ["Python", "NumPy", "Matplotlib"]
   },
   {
@@ -34,7 +36,10 @@ const experiences = [
     company: "Stanford Children's Health",
     location: "Palo Alto, CA",
     date: "May 2022 - August 2022",
-    description: ["Description"],
+    description: ["Developed machine learning models (CNN using TensorFlow and Random Forest Classifier using SKlearn) to \
+                   localize accessory pathway in patients with Wolff-Parkinson-White Syndrome, achieving ~85% accuracy",
+                  "Built a new clinical application in python to automatically digitize heart-rate graphs and extract metadata \
+                  from long term heart monitor report PDFs"],
     skills: ["TensorFlow", "Scikit-learn", "Matplotlib"]
   },
 ];
@@ -55,7 +60,7 @@ function Experience() {
         
         <div 
           ref={experienceRef}
-          className="space-y-6 opacity-0 overflow-y-auto h-[600px] scroll-smooth pr-4"
+          className="space-y-6 opacity-0"
         >
           {experiences.map((exp, index) => (
             <div 

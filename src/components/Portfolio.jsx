@@ -12,8 +12,8 @@ const projects = [
   {
     title: "Orchard Odyssey",
     image: orchardImage,
-    description: "A 2D side scrolling game built in Java.",
-    skills: ["Java", "OOP", "Design"],
+    description: "A 2D side scrolling game built in Java using Swing.",
+    skills: ["Java", "Swing", "OOP", "Design Patterns"],
     date: "April 2024"
   },
   {
@@ -24,25 +24,30 @@ const projects = [
     skills: ["JavaScript", "Node", "PostgreSQL", "Mapbox", "Azure", "Docker"],
     date: "May 2023"
   },
-  {
-    title: "Arrhythmia Detection",
-    image: arrhythmiaImage,
-    description: "this is a description this is a description this is a description this is a description."
-  },
-  {
-    title: "ML for WPW Detection",
-    image: wpwImage,
-    description: "this is a description this is a description this is a description this is a description."
-  },
-  {
-    title: "MVP.ai",
-    image: "path/to/image5.jpg",
-    description: "this is a description this is a description this is a description this is a description."
-  },
+  // {
+  //   title: "Arrhythmia Detection",
+  //   image: arrhythmiaImage,
+  //   description: "Used a convolutional neural network to detect 10 types of cardiac \
+  //                 arrhythmia with >99% accuracy",
+  //   skills: ["Python", "Pandas", "TensorFlow", "Matplotlib"],
+  //   date: "2020"
+  // },
+  // {
+  //   title: "ML for WPW Detection",
+  //   image: wpwImage,
+  //   description: "this is a description this is a description this is a description this is a description."
+  // },
+  // {
+  //   title: "MVP.ai",
+  //   image: "path/to/image5.jpg",
+  //   description: "this is a description this is a description this is a description this is a description."
+  // },
   {
     title: "NBA Draft Decoded",
     image: draftImage,
-    description: "Used bayesian analysis and linear regression to determine if NBA draft order determines career success."
+    description: "Predicting NBA career success based on draft position.",
+    skills: ["Python", "NumPy", "Pandas", "Matplotlib", "Scikit-learn"],
+    date: "July 2023"
   },
 ];
 
@@ -100,7 +105,7 @@ function Portfolio() {
           {/* Cards Container */}
           <div 
             ref={projectsRef}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 p-4 sm:p-6 lg:p-8 opacity-0"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 p-4 sm:p-6 lg:p-8 opacity-0"
           >
             {getCurrentPageProjects().map((project, index) => (
               <div 

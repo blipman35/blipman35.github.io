@@ -32,10 +32,11 @@ function App() {
   }
 
   return (
-    <div className="App min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-950 dark:to-black font-sans p-2 sm:p-4 transition-colors duration-200">
-      <div className="max-w-7xl mx-auto min-h-screen bg-white/90 dark:bg-gray-900/95 backdrop-blur-md shadow-2xl rounded-2xl transition-colors duration-200">
-        <Navbar isDark={isDark} toggleDark={toggleDark} />
-        <div className="space-y-24">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-950 font-sans transition-colors duration-200">
+      <Navbar isDark={isDark} toggleDark={toggleDark} />
+      
+      <main className="py-8">
+        <div className="space-y-32">
           <Intro />
           <div id="experience">
             <Experience />
@@ -47,7 +48,8 @@ function App() {
             <Contact />
           </div>
         </div>
-      </div>
+      </main>
+      
       <Footer />
     </div>
   )

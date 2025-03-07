@@ -17,58 +17,70 @@ function ProjectCard({ title, image, description, skills = [], date }) {
 
     if (isModalOpen) {
       window.addEventListener('keydown', handleEsc);
+      document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
     }
 
     return () => {
       window.removeEventListener('keydown', handleEsc);
+      document.body.style.overflow = ''; // Re-enable scrolling when modal closes
     };
   }, [isModalOpen]);
 
   const modalContent = (
     <div 
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-sm bg-black/50"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-md bg-black/60 transition-opacity duration-300"
       onClick={closeModal}
     >
       <div 
-        className="bg-white dark:bg-gray-800 rounded-2xl w-full max-w-3xl shadow-[0_8px_32px_rgba(0,0,0,0.1)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.3)] animate-modalIn"
+        className="bg-white/90 dark:bg-gray-800/95 backdrop-blur-sm rounded-2xl w-full max-w-2xl shadow-[0_10px_50px_rgba(0,0,0,0.2)] dark:shadow-[0_10px_50px_rgba(0,0,0,0.4)] animate-modalIn overflow-hidden border border-gray-200/50 dark:border-gray-700/50"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex flex-col">
-          <div className="flex justify-between items-start p-6 border-b border-gray-200 dark:border-gray-700">
-            <div className="space-y-1">
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">{title}</h2>
+          {/* Header with close button */}
+          <div className="flex justify-between items-center p-5 border-b border-gray-200/50 dark:border-gray-700/50">
+            <div>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white">{title}</h2>
               {date && (
-                <p className="text-gray-500 dark:text-gray-400">{date}</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">{date}</p>
               )}
             </div>
             <button 
               onClick={closeModal}
-              className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 text-3xl font-light w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"
+              className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 rounded-full p-1 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
+              aria-label="Close modal"
             >
-              ×
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
             </button>
           </div>
-          <div className="p-6 space-y-6">
-            <div className="relative w-full aspect-video bg-gray-100 dark:bg-gray-700 rounded-xl overflow-hidden">
+          
+          <div className="p-5 space-y-5">
+            {/* Image container - removed background and border */}
+            <div className="flex justify-center">
               <img 
                 src={image} 
                 alt={title} 
-                className="w-full h-full object-contain"
+                className="max-w-full max-h-56 object-contain rounded-lg"
               />
             </div>
+            
+            {/* Skills tags */}
             {skills && skills.length > 0 && (
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 mt-4">
                 {skills.map((skill, index) => (
                   <span 
                     key={index}
-                    className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-100 rounded-full text-sm font-medium"
+                    className="px-3 py-1 bg-blue-100/70 dark:bg-blue-900/50 text-blue-700 dark:text-blue-100 rounded-full text-xs font-medium"
                   >
                     {skill}
                   </span>
                 ))}
               </div>
             )}
-            <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+            
+            {/* Description */}
+            <p className="text-gray-700 dark:text-gray-300 text-base leading-relaxed">
               {description}
             </p>
           </div>
@@ -81,7 +93,7 @@ function ProjectCard({ title, image, description, skills = [], date }) {
     <>
       <div 
         onClick={() => setIsModalOpen(true)}
-        className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl shadow-lg hover:scale-105 hover:shadow-[0_20px_50px_rgba(0,0,0,0.15)] dark:hover:shadow-[0_20px_50px_rgba(0,0,0,0.3)] transition-all duration-300 cursor-pointer group"
+        className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl shadow-lg hover:scale-105 hover:shadow-[0_20px_50px_rgba(0,0,0,0.15)] dark:hover:shadow-[0_20px_50px_rgba(0,0,0,0.3)] transition-all duration-300 cursor-pointer group hover:bg-gradient-to-r hover:from-blue-500/10 hover:to-purple-500/10"
       >
         <div className="p-4">
           <div className="relative h-48 w-full mb-4">

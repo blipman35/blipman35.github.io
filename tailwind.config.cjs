@@ -8,6 +8,13 @@ export default {
         sans: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'],
         mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'],
       },
+      backgroundImage: {
+        'gradient-primary': 'linear-gradient(to right, var(--tw-gradient-stops))',
+      },
+      gradientColorStops: {
+        'blue-purple-light': 'from-blue-500/20 to-purple-500/20',
+        'blue-purple-dark': 'from-blue-500/10 to-purple-500/10',
+      },
       animation: {
         'fadeIn': 'fadeIn 0.8s ease-out forwards',
         'slideIn': 'slideIn 1s ease-in',
