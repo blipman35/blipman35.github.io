@@ -64,9 +64,9 @@ function Intro() {
               <Typewriter text=" Benjamin Lipman" delay={150} /> {/* typewriter effect for the name */}
             </h1>
             <div className="font-mono text-sm sm:text-base lg:text-lg mb-3 md:mb-5 text-gray-700 dark:text-gray-300">
-              <p className="mb-2">
+              {/* <p className="mb-2">
                 <Typewriter text="(Incoming) Software Engineer @ Workday" delay={50} />
-              </p>
+              </p> */}
               <p>
                 <Typewriter text="B.A. in Computer Science @ The University of Colorado Boulder" delay={30} />
               </p>
