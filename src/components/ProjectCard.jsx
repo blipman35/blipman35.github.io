@@ -93,7 +93,7 @@ function ProjectCard({ title, image, description, skills = [], date }) {
     <>
       <div 
         onClick={() => setIsModalOpen(true)}
-        className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl shadow-lg hover:scale-105 hover:shadow-[0_20px_50px_rgba(0,0,0,0.15)] dark:hover:shadow-[0_20px_50px_rgba(0,0,0,0.3)] transition-all duration-300 cursor-pointer group hover:bg-gradient-to-r hover:from-blue-500/10 hover:to-purple-500/10"
+        className="project-card backdrop-blur-sm rounded-2xl shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer"
       >
         <div className="p-4">
           <div className="relative h-48 w-full mb-4">

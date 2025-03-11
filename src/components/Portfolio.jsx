@@ -51,31 +51,76 @@ const projects = [
   },
 ];
 
-function Portfolio() { 
+function Portfolio() {
   const titleRef = useScrollAnimation();
   const projectsRef = useScrollAnimation();
+  const containerRef = useRef(null);
+  
   const [currentPage, setCurrentPage] = useState(0);
-  const totalPages = Math.ceil(projects.length / 3);
-
+  const projectsPerPage = 3;
+  const totalPages = Math.ceil(projects.length / projectsPerPage);
+  
   const nextPage = () => {
-    setCurrentPage((prev) => (prev + 1) % totalPages);
+    setCurrentPage((prev) => Math.min(prev + 1, totalPages - 1));
   };
-
+  
   const prevPage = () => {
-    setCurrentPage((prev) => (prev - 1 + totalPages) % totalPages);
+    setCurrentPage((prev) => Math.max(prev - 1, 0));
   };
-
+  
   const getCurrentPageProjects = () => {
-    const start = currentPage * 3;
-    return projects.slice(start, start + 3);
+    const start = currentPage * projectsPerPage;
+    const end = start + projectsPerPage;
+    return projects.slice(start, end);
   };
 
-  return ( 
-    <div id="projects" className="py-12">
-      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-16">
+  // Handle mouse movement for the gradient effect
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      if (!containerRef.current) return;
+      
+      const cards = containerRef.current.querySelectorAll('.project-card');
+      
+      cards.forEach(card => {
+        const cardRect = card.getBoundingClientRect();
+        
+        // Calculate relative position within the card
+        const relativeX = ((e.clientX - cardRect.left) / cardRect.width) * 100;
+        const relativeY = ((e.clientY - cardRect.top) / cardRect.height) * 100;
+        
+        // Apply gradient based on mouse position regardless of distance
+        card.style.background = `radial-gradient(circle at ${relativeX}% ${relativeY}%, rgba(59, 130, 246, 0.15), rgba(147, 51, 234, 0.15))`;
+      });
+    };
+    
+    // Set initial gradient for all cards
+    const initializeGradients = () => {
+      const cards = containerRef.current?.querySelectorAll('.project-card');
+      if (cards) {
+        cards.forEach(card => {
+          card.style.background = 'radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.15), rgba(147, 51, 234, 0.15))';
+        });
+      }
+    };
+    
+    // Initialize gradients
+    initializeGradients();
+    
+    // Add event listener
+    document.addEventListener('mousemove', handleMouseMove);
+    
+    // Clean up
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, [currentPage]);
+
+  return (
+    <div className="flex items-center justify-center py-12">
+      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-16" ref={containerRef}>
         <h2 
-          ref={titleRef} 
-          className="text-4xl font-bold mb-12 opacity-0 dark:text-white"
+          ref={titleRef}
+          className="text-4xl font-bold mb-12 opacity-0 text-gray-900 dark:text-white"
         >
           Projects
         </h2>
@@ -124,20 +169,22 @@ function Portfolio() {
           </div>
           
           {/* Page Indicators */}
-          <div className="flex justify-center gap-2 mt-6">
-            {[...Array(totalPages)].map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentPage(index)}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  currentPage === index 
-                    ? 'bg-blue-500 w-6' 
-                    : 'bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500'
-                }`}
-                aria-label={`Go to page ${index + 1}`}
-              />
-            ))}
-          </div>
+          {totalPages > 1 && (
+            <div className="flex justify-center mt-8 space-x-2">
+              {Array.from({ length: totalPages }).map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentPage(index)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    currentPage === index 
+                      ? 'bg-blue-500 scale-125' 
+                      : 'bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500'
+                  }`}
+                  aria-label={`Go to page ${index + 1}`}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>
