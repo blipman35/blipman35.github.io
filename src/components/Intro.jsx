@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
-import headshot from '../assets/lipman_headshot.png';
-import Typewriter from "./Typewriter";
+//import headshot from '../assets/lipman_headshot.png';
+import headshot from '../assets/headshot.jpeg';
 
 const emojis = ["👾", "👋", "😎", "🚀", "🌟", "🎨", "🤖", "🌍", "👨‍💻", "🕴️"] // emojis for randomizing the intro
 
@@ -61,25 +61,24 @@ function Intro() {
               >
                 {currentEmoji}
               </span>
-              <Typewriter text=" Benjamin Lipman" delay={150} /> {/* typewriter effect for the name */}
+              {" "}Benjamin Lipman
             </h1>
             <div className="font-mono text-sm sm:text-base lg:text-lg mb-3 md:mb-5 text-gray-700 dark:text-gray-300">
               <p className="mb-2">
-                <Typewriter text="(Incoming) Software Engineer at Workday" delay={50} />
+                (Incoming) Software Engineer at Workday
               </p>
               <p>
-                <Typewriter text="B.A. in Computer Science from The University of Colorado Boulder" delay={30} />
+                B.A. in Computer Science from The University of Colorado Boulder
               </p>
             </div>
           </div>
 
           <div className="flex-shrink-0">
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full blur-md opacity-70"></div>
               <img 
                 src={headshot}
                 alt="Benjamin Lipman"
-                className="relative h-48 w-48 md:h-56 md:w-56 rounded-full object-cover border-4 border-white dark:border-gray-800 shadow-lg"
+                className="h-48 w-48 md:h-56 md:w-56 rounded-full object-cover border-4 border-white dark:border-gray-800 shadow-lg"
                 style={{ objectPosition: '50% 35%' }}
               />
             </div>

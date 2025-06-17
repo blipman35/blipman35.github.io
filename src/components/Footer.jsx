@@ -8,13 +8,8 @@ function Footer() {
           {/* Location */}
           <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-full px-6 py-3 flex items-center gap-3 shadow-md text-gray-900 dark:text-white">
             <span className="text-xl">📍</span>
-            <span>Boulder, CO</span>
+            <span>Denver, CO</span>
           </div>
-          
-          {/* Copyright */}
-          <p className="text-gray-500 dark:text-gray-400 text-sm">
-            {new Date().getFullYear()} Benjamin Lipman • Software Engineer
-          </p>
         </div>
       </div>
     </footer>

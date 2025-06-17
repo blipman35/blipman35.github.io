@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import ProjectCard from "./ProjectCard";
 import draftImage from '../assets/draft.png';
 import orchardImage from '../assets/orchard.png';
@@ -73,47 +73,6 @@ function Portfolio() {
     const end = start + projectsPerPage;
     return projects.slice(start, end);
   };
-
-  // Handle mouse movement for the gradient effect
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      if (!containerRef.current) return;
-      
-      const cards = containerRef.current.querySelectorAll('.project-card');
-      
-      cards.forEach(card => {
-        const cardRect = card.getBoundingClientRect();
-        
-        // Calculate relative position within the card
-        const relativeX = ((e.clientX - cardRect.left) / cardRect.width) * 100;
-        const relativeY = ((e.clientY - cardRect.top) / cardRect.height) * 100;
-        
-        // Apply gradient based on mouse position regardless of distance
-        card.style.background = `radial-gradient(circle at ${relativeX}% ${relativeY}%, rgba(59, 130, 246, 0.15), rgba(147, 51, 234, 0.15))`;
-      });
-    };
-    
-    // Set initial gradient for all cards
-    const initializeGradients = () => {
-      const cards = containerRef.current?.querySelectorAll('.project-card');
-      if (cards) {
-        cards.forEach(card => {
-          card.style.background = 'radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.15), rgba(147, 51, 234, 0.15))';
-        });
-      }
-    };
-    
-    // Initialize gradients
-    initializeGradients();
-    
-    // Add event listener
-    document.addEventListener('mousemove', handleMouseMove);
-    
-    // Clean up
-    return () => {
-      document.removeEventListener('mousemove', handleMouseMove);
-    };
-  }, [currentPage]);
 
   return (
     <div className="flex items-center justify-center py-12">

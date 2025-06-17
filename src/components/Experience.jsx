@@ -1,5 +1,8 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import useScrollAnimation from '../hooks/useScrollAnimation';
+import workdayLogo from '../assets/workday_logo.jpeg';
+import infleqtionLogo from '../assets/infq_logo.jpeg';
+import stanfordLogo from '../assets/stanford_childrens_health_logo.jpeg';
 
 function Experience() {
   const titleRef = useScrollAnimation();
@@ -11,77 +14,31 @@ function Experience() {
     {
       title: "Software Engineer Intern",
       company: "Workday",
+      logo: workdayLogo,
       location: "Boulder, CO",
       date: "May 2024 - August 2024",
-      description: ["Worked on VNDLY, Workday's vendor management system.",
-                    "Developed new RESTful API using Django, enabling vendors to apply candidates to jobs \
-                    and track existing applications, reducing latency by >50% over legacy API version", 
-                    ""],
+      description: ["Built APIs for LE customers to integrate Workday VNDLY with third party systems"],
       skills: ["Django", "React", "PostgreSQL"]
     },
     {
       title: "Software Engineer Intern",
       company: "Infleqtion",
-      location: "Remote",
+      logo: infleqtionLogo,
+      location: "Boulder, CO",
       date: "June 2023 - August 2023",
-      description: ["Developed a python module for real-time simulation of Oqtant, the world's first cloud-based quantum \
-                     matter service", 
-                    "Simulator is publicly available and being used by educators, researchers and developers around the world"],
+      description: ["Simulating quantum matter in Python, to be used by educators and researchers around the world"], 
       skills: ["Python", "NumPy", "Matplotlib"]
     },
     {
       title: "Data Science Intern",
       company: "Stanford Children's Health",
+      logo: stanfordLogo,
       location: "Palo Alto, CA",
       date: "May 2022 - August 2022",
-      description: ["Developed machine learning models (CNN using TensorFlow and Random Forest Classifier using SKlearn) to \
-                     localize accessory pathway in patients with Wolff-Parkinson-White Syndrome, achieving ~85% accuracy",
-                    "Built a new clinical application in python to automatically digitize heart-rate graphs and extract metadata \
-                    from long term heart monitor report PDFs"],
+      description: ["Developed and tested ML models on real pediatric data for applications in cardiology"],
       skills: ["TensorFlow", "Scikit-learn", "Matplotlib"]
     },
   ];
-
-  // Handle mouse movement for the gradient effect
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      if (!containerRef.current) return;
-      
-      const cards = containerRef.current.querySelectorAll('.experience-card');
-      
-      cards.forEach(card => {
-        const cardRect = card.getBoundingClientRect();
-        
-        // Calculate relative position within the card
-        const relativeX = ((e.clientX - cardRect.left) / cardRect.width) * 100;
-        const relativeY = ((e.clientY - cardRect.top) / cardRect.height) * 100;
-        
-        // Apply gradient based on mouse position regardless of distance
-        card.style.background = `radial-gradient(circle at ${relativeX}% ${relativeY}%, rgba(59, 130, 246, 0.15), rgba(147, 51, 234, 0.15))`;
-      });
-    };
-    
-    // Set initial gradient for all cards
-    const initializeGradients = () => {
-      const cards = containerRef.current?.querySelectorAll('.experience-card');
-      if (cards) {
-        cards.forEach(card => {
-          card.style.background = 'radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.15), rgba(147, 51, 234, 0.15))';
-        });
-      }
-    };
-    
-    // Initialize gradients
-    initializeGradients();
-    
-    // Add event listener
-    document.addEventListener('mousemove', handleMouseMove);
-    
-    // Clean up
-    return () => {
-      document.removeEventListener('mousemove', handleMouseMove);
-    };
-  }, []);
 
   return (
     <div className="flex items-center justify-left py-12">
@@ -95,46 +52,57 @@ function Experience() {
         
         <div 
           ref={experienceRef}
-          className="space-y-6 opacity-0"
+          className="space-y-8 opacity-0"
         >
           {experiences.map((exp, index) => (
             <div 
               key={index} 
-              className="experience-card backdrop-blur-sm rounded-2xl p-6 shadow-md transition-all duration-300"
+              className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 shadow-md transition-all duration-300"
             >
-              <div className="flex flex-col mb-4">
-                <div className="flex justify-between items-start mb-2">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">{exp.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm">{exp.date}</p>
+              <div className="flex items-start gap-6">
+                <div className="flex-shrink-0 w-16 h-16 flex items-center justify-center">
+                  <img 
+                    src={exp.logo} 
+                    alt={`${exp.company} logo`} 
+                    className="max-w-full max-h-full object-contain rounded-lg"
+                  />
                 </div>
-                <div className="flex items-center gap-2">
-                  <p className="text-blue-500 font-semibold">{exp.company}</p>
-                  <span className="text-gray-400">•</span>
-                  <p className="text-gray-600 dark:text-gray-400">{exp.location}</p>
+                
+                <div className="flex-grow">
+                  <div className="flex justify-between items-start mb-3">
+                    <div>
+                      <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-1">{exp.company}</h3>
+                      <p className="text-lg text-gray-700 dark:text-gray-300">{exp.title}</p>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-gray-600 dark:text-gray-400 text-sm">{exp.date}</p>
+                      <p className="text-gray-600 dark:text-gray-400 text-sm">{exp.location}</p>
+                    </div>
+                  </div>
+                  
+                  <div className="mb-4">
+                    {Array.isArray(exp.description) ? (
+                      exp.description.map((line, index) => (
+                        <p key={index} className="text-gray-700 dark:text-gray-300 mb-2">
+                          {line}
+                        </p>
+                      ))
+                    ) : (
+                      <p className="text-gray-700 dark:text-gray-300">{exp.description}</p>
+                    )}
+                  </div>
+                  
+                  <div className="flex flex-wrap gap-2">
+                    {exp.skills.map((skill, skillIndex) => (
+                      <span 
+                        key={skillIndex}
+                        className="px-3 py-1 rounded-full text-sm bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-              
-              <p className="text-gray-700 dark:text-gray-300 mb-4">
-                {Array.isArray(exp.description) ? (
-                  exp.description.map((line, index) => (
-                    <span key={index} className="block mb-2">
-                      {line}
-                    </span>
-                  ))
-                ) : (
-                  exp.description
-                )}
-              </p>
-              
-              <div className="flex flex-wrap gap-2">
-                {exp.skills.map((skill, skillIndex) => (
-                  <span 
-                    key={skillIndex}
-                    className="px-3 py-1 rounded-full text-sm bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300"
-                  >
-                    {skill}
-                  </span>
-                ))}
               </div>
             </div>
           ))}
