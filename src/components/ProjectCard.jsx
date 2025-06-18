@@ -61,7 +61,8 @@ function ProjectCard({ title, image, description, skills = [], date }) {
               <img 
                 src={image} 
                 alt={title} 
-                className="max-w-full max-h-56 object-contain rounded-lg"
+                className="w-full h-full object-cover rounded-xl"
+                loading="lazy"
               />
             </div>
             
@@ -101,6 +102,7 @@ function ProjectCard({ title, image, description, skills = [], date }) {
               src={image} 
               alt={title} 
               className="w-full h-full object-cover rounded-xl"
+              loading="lazy"
             />
           </div>
           <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">{title}</h3>

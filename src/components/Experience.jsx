@@ -18,7 +18,8 @@ function Experience() {
       location: "Boulder, CO",
       date: "May 2024 - August 2024",
       description: ["Built APIs for LE customers to integrate Workday VNDLY with third party systems"],
-      skills: ["Django", "React", "PostgreSQL"]
+      skills: ["Django", "React", "PostgreSQL"], 
+      href: "https://www.workday.com/"
     },
     {
       title: "Software Engineer Intern",
@@ -27,7 +28,8 @@ function Experience() {
       location: "Boulder, CO",
       date: "June 2023 - August 2023",
       description: ["Simulating quantum matter in Python, to be used by educators and researchers around the world"], 
-      skills: ["Python", "NumPy", "Matplotlib"]
+      skills: ["Python", "NumPy", "Matplotlib"], 
+      href: "https://www.infleqtion.com/"
     },
     {
       title: "Data Science Intern",
@@ -36,7 +38,8 @@ function Experience() {
       location: "Palo Alto, CA",
       date: "May 2022 - August 2022",
       description: ["Developed and tested ML models on real pediatric data for applications in cardiology"],
-      skills: ["TensorFlow", "Scikit-learn", "Matplotlib"]
+      skills: ["TensorFlow", "Scikit-learn", "Matplotlib"], 
+      href: "https://www.stanfordchildrens.org/"
     },
   ];
 
@@ -60,13 +63,18 @@ function Experience() {
               className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 shadow-md transition-all duration-300"
             >
               <div className="flex items-start gap-6">
-                <div className="flex-shrink-0 w-16 h-16 flex items-center justify-center">
+                <a 
+                  href={exp.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-shrink-0 w-16 h-16 flex items-center justify-center hover:scale-110 transition-transform duration-300"
+                >
                   <img 
                     src={exp.logo} 
                     alt={`${exp.company} logo`} 
                     className="max-w-full max-h-full object-contain rounded-lg"
                   />
-                </div>
+                </a>
                 
                 <div className="flex-grow">
                   <div className="flex justify-between items-start mb-3">

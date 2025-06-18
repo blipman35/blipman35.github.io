@@ -1,8 +1,20 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 //import headshot from '../assets/lipman_headshot.png';
 import headshot from '../assets/headshot.jpeg';
 
 const emojis = ["👾", "👋", "😎", "🚀", "🌟", "🎨", "🤖", "🌍", "👨‍💻", "🕴️"] // emojis for randomizing the intro
+
+// Throttle function to limit how often a function can be called
+const throttle = (func, limit) => {
+  let inThrottle;
+  return function(...args) {
+    if (!inThrottle) {
+      func.apply(this, args);
+      inThrottle = true;
+      setTimeout(() => inThrottle = false, limit);
+    }
+  }
+};
 
 function Intro() { 
   const [currentEmoji, setCurrentEmoji] = useState(emojis[0]); // current emoji for randomizing the intro
@@ -15,9 +27,9 @@ function Intro() {
     setCurrentEmoji(randEmoji);
   }
 
-  // Handle mouse movement for the gradient effect
-  useEffect(() => {
-    const handleMouseMove = (e) => {
+  // Memoize and throttle the mouse move handler
+  const handleMouseMove = useCallback(
+    throttle((e) => {
       if (!gradientRef.current) return;
       
       const rect = gradientRef.current.getBoundingClientRect();
@@ -32,16 +44,16 @@ function Intro() {
       
       // Update the gradient position
       gradientRef.current.style.background = `radial-gradient(circle at ${xPercent}% ${yPercent}%, rgba(59, 130, 246, 0.15), rgba(147, 51, 234, 0.15))`;
-    };
-    
-    // Add event listener
-    document.addEventListener('mousemove', handleMouseMove);
-    
-    // Clean up
+    }, 50), // Throttle to 50ms
+    []
+  );
+
+  useEffect(() => {
+    document.addEventListener('mousemove', handleMouseMove, { passive: true });
     return () => {
       document.removeEventListener('mousemove', handleMouseMove);
     };
-  }, []);
+  }, [handleMouseMove]);
 
   return ( 
     <div id="home" className="flex items-center justify-center min-h-[calc(100vh-80px)]">
