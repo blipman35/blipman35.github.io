@@ -1,37 +1,23 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-scroll";
 import DarkModeToggle from "./DarkModeToggle";
-
-// Throttle function to limit how often a function can be called
-const throttle = (func, limit) => {
-  let inThrottle;
-  return function(...args) {
-    if (!inThrottle) {
-      func.apply(this, args);
-      inThrottle = true;
-      setTimeout(() => inThrottle = false, limit);
-    }
-  }
-};
 
 function Navbar({ isDark, toggleDark }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // Memoize the scroll handler
-  const handleScroll = useCallback(
-    throttle(() => {
-      const scrollPosition = window.scrollY;
-      setIsScrolled(scrollPosition > 50);
-    }, 100), // Throttle to 100ms
-    []
-  );
-
-  // Listen for scroll events
   useEffect(() => {
+    const handleScroll = () => {
+      // Simple direct check without throttling
+      setIsScrolled(window.scrollY > 20);
+    };
+
+    // Check initial scroll position
+    handleScroll();
+    
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [handleScroll]);
+  }, []);
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
