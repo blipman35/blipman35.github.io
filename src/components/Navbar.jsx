@@ -32,9 +32,6 @@ function Navbar({ isDark, toggleDark }) {
             <div className="h-10 w-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-lg shadow-md mr-3">
               BL
             </div>
-            {/* <span className="font-bold text-xl text-gray-900 dark:text-white">
-              Ben Lipman
-            </span> */}
           </div>
           
           {/* Dark mode toggle on the right when not scrolled */}

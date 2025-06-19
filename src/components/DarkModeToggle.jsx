@@ -9,7 +9,7 @@ function DarkModeToggle({ isDark, toggleDark }) {
       aria-label="Toggle dark mode"
     >
       {isDark ? (
-        <SunIcon className="w-6 h-6 text-yellow-500" />
+        <SunIcon className="w-6 h-6 text-white" />
       ) : (
         <MoonIcon className="w-6 h-6 text-gray-700" />
       )}
